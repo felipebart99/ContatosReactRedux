@@ -71,3 +71,19 @@ export const BotaoSalvar = styled(Botao)`
 export const BotaoCancelarRemover = styled(Botao)`
   background-color: red;
 `;
+export const Input = styled.input`
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 8px;
+`;
+export const Select = styled.select`
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 8px;
+`;
