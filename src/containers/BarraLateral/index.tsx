@@ -2,6 +2,7 @@ import FiltroCard from "../../components/FiltroCard";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Aside, Campo, Filtros } from "./styles";
 import { alterarTermo } from "../../redux/reducers/filtro";
+import BotaoAdicionar from "../../components/BotaoAdicionar";
 
 const BarraLateral = () => {
   const dispatch = useAppDispatch();
@@ -22,6 +23,7 @@ const BarraLateral = () => {
           <FiltroCard criterio="favoritos" legenda="Favoritos" />
         </Filtros>
       </div>
+      <BotaoAdicionar />
     </Aside>
   );
 };
