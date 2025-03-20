@@ -21,6 +21,7 @@ const BarraLateral = () => {
           <FiltroCard criterio="trabalho" legenda="Trabalho" />
           <FiltroCard criterio="amigos" legenda="Amigos" />
           <FiltroCard criterio="favoritos" legenda="Favoritos" />
+          <FiltroCard criterio="todos" legenda="Todos" />
         </Filtros>
       </div>
       <BotaoAdicionar />

@@ -1,32 +1,39 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Contato from "../../models/Contato";
+
+interface Contato {
+  id: number;
+  nome: string;
+  tag: string;
+  email: string;
+  telefone: string;
+}
 
 const contatosSlice = createSlice({
   name: "contatos",
   initialState: {
     itens: [
-      new Contato(
-        "Carla",
-        "amigos",
-        "carlinha@123",
-        "755657868764",
-        Date.now()
-      ),
-      new Contato(
-        "Ana",
-        "trabalho",
-        "aninha@gmail",
-        "755657868764",
-        Date.now() + 1
-      ),
-      new Contato(
-        "Pedro",
-        "amigos",
-        "petter@123",
-        "755657868764",
-        Date.now() + 2
-      ),
-    ],
+      {
+        id: Date.now(),
+        nome: "Carla soares",
+        tag: "amigos",
+        email: "carlinha@123",
+        telefone: "755657868764",
+      },
+      {
+        id: Date.now() + 1,
+        nome: "Ana tenorio",
+        tag: "trabalho",
+        email: "aninha@gmail",
+        telefone: "755657868764",
+      },
+      {
+        id: Date.now() + 2,
+        nome: "Pedro gomes",
+        tag: "familia",
+        email: "petter@123",
+        telefone: "755657868764",
+      },
+    ] as Contato[],
   },
   reducers: {
     remover: (state, action: PayloadAction<number>) => {
@@ -42,8 +49,13 @@ const contatosSlice = createSlice({
         state.itens[index] = action.payload;
       }
     },
+    adicionar: (state, action: PayloadAction<Omit<Contato, "id">>) => {
+      const novoContato = { ...action.payload, id: Date.now() };
+      state.itens.push(novoContato);
+      console.log("Novo contato adicionado:", novoContato); // Log para depuração
+    },
   },
 });
 
-export const { remover, editar } = contatosSlice.actions;
+export const { remover, editar, adicionar } = contatosSlice.actions;
 export default contatosSlice.reducer;
