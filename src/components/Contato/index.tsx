@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import * as S from "./styles";
 import { useAppDispatch } from "../../redux/hooks";
-import { remover, editar } from "../../redux/reducers/contatos";
-import ContatoClass from "../../models/Contato";
+import {
+  remover,
+  editar,
+  Contato as ContatoInterface,
+} from "../../redux/reducers/contatos";
 
-type Props = ContatoClass;
 const Contato = ({
   nome: nomeOriginal,
   tag: tagOriginal,
   email: emailOriginal,
   telefone: telefoneOriginal,
   id,
-}: Props) => {
+}: ContatoInterface) => {
   const dispatch = useAppDispatch();
   const [estaEditando, setEstaEditando] = useState(false);
   const [nome, setNome] = useState(nomeOriginal);
